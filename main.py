@@ -1,14 +1,12 @@
 from pyray import *
+import menu
 
-WIDTH = 1000
-HEIGHT = 1000
+currentScene = menu.Menu()
 
-init_window(WIDTH, HEIGHT, "BattleShip")
+def main():
+    currentScene.init()
+    currentScene.loop()
+    currentScene.destroy()
 
-while not window_should_close():
-    begin_drawing()
-    clear_background(WHITE)
-    draw_text("BattleShip", int(WIDTH / 2) - 90, int(HEIGHT / 2) - 10, 40, VIOLET)
-    end_drawing()
-
-close_window()
+if __name__ == '__main__':
+    main()
