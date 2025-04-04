@@ -14,7 +14,7 @@ class Playground:
             close_window()
             return
 
-        self.texture = load_texture_from_image(image)
+        self.water_texture = load_texture_from_image(image)
         unload_image(image)
 
     # initialize
@@ -24,4 +24,8 @@ class Playground:
                 self.matrix[row][col] = State.WATER
 
     def draw(self):
+        for row in range(self.height):
+            for col in range(self.width):
+                if self.matrix[row][col] == State.WATER:
+                    draw_texture(self.water_texture , col*16, row*16, WHITE)        
         pass
