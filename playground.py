@@ -1,4 +1,4 @@
-from raylib import *
+from pyray import *
 from state import State
 
 class Playground:
@@ -6,15 +6,22 @@ class Playground:
         self.width = width
         self.height = height
         self.matrix = [[0 for _ in range(width)] for _ in range(height)]
-        create()
+        self.create()
+        # loading assets
+        image = load_image("assets/sprites/water.png")
+        if image.width == 0 or image.height == 0:
+            print("Failed to load image")
+            close_window()
+            return
+
+        self.texture = load_texture_from_image(image)
+        unload_image(image)
 
     # initialize
-    def create():
-        for row in range(height):
-            for section in range(width):
-                water_block = self.matrix[row][section]
-                water_block = State(water_block) 
-        pass
+    def create(self):
+        for row in range(self.height):
+            for col in range(self.width):
+                self.matrix[row][col] = State.WATER
 
-    def draw():
+    def draw(self):
         pass

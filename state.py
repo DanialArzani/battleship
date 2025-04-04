@@ -9,4 +9,3 @@ class State(Enum):
     DESTROYED_SHIP = 5
     MISSED_SHOT = 6
 
-

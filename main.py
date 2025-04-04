@@ -1,7 +1,8 @@
 from pyray import *
 import menu
+import game
 
-currentScene = menu.Menu()
+currentScene = game.Game()
 
 def main():
     currentScene.init()
